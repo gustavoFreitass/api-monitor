@@ -25,10 +25,8 @@ public class ApiMonitorApplication{
 
 	/**
 	 * O método 'main' é o ponto de partida padrão para qualquer aplicação Java.
-	 * <p>
 	 * {@code SpringApplication.run()} é o método estático que inicia a aplicação Spring Boot.
 	 * Ele cria e configura o contexto da aplicação, fazendo com que tudo funcione junto.
-	 *
 	 * @param args Os argumentos da linha de comando que podem ser passados ao iniciar a aplicação.
 	 */
 	public static void main(String[] args) {

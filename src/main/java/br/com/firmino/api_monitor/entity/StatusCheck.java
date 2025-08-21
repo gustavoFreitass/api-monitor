@@ -1,9 +1,7 @@
 package br.com.firmino.api_monitor.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import br.com.firmino.api_monitor.api.MonitoredApi;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 
@@ -34,22 +32,23 @@ public class StatusCheck {
     private Long id;
 
     /**
-     * URL da API que foi verificada.
-     */
-    private String url;
-
-    /**
      * Código de status da resposta HTTP (ex: 200 para OK, 404 para Não Encontrado).
      */
+    @Column(nullable = false)
     private int statusCode;
 
     /**
      * Data e hora exata em que a verificação de status foi realizada.
      */
+    @Column(nullable = false)
     private LocalDateTime timestamp;
 
     /**
      * Tempo de resposta da API em milissegundos.
      */
     private Long responseTimeMillis;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "monitored_api_id", nullable = false)
+    private MonitoredApi monitoredApi;
 }
