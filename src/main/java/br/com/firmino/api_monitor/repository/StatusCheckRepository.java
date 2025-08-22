@@ -1,8 +1,11 @@
 package br.com.firmino.api_monitor.repository;
 
+import br.com.firmino.api_monitor.api.MonitoredApi;
 import br.com.firmino.api_monitor.entity.StatusCheck;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 /**
  * Esta interface é o Repositório, a camada responsável pela comunicação
@@ -19,4 +22,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface StatusCheckRepository extends JpaRepository<StatusCheck, Long> {
+    Optional<StatusCheck> findTopByMonitoredApiOrderByTimestampDesc(MonitoredApi monitoredApi);
 }
