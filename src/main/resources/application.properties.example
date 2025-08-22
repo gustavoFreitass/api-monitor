@@ -1,0 +1,9 @@
+spring.application.name=api-monitor
+spring.datasource.url=jdbc:mysql://localhost:3306/api_monitor_db?serverTimezone=UTC
+spring.datasource.username=seu username aqui
+spring.datasource.password=sua senha aqui
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+monitor.urls=https://www.google.com,https://api.github.com,https://www.instagram.com/
