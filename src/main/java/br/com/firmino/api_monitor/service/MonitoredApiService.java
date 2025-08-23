@@ -1,9 +1,13 @@
-package br.com.firmino.api_monitor.api;
+package br.com.firmino.api_monitor.service;
 
+import br.com.firmino.api_monitor.api.MonitoredApi;
 import br.com.firmino.api_monitor.dto.ApiServiceStatusDTO;
 import br.com.firmino.api_monitor.entity.StatusCheck;
+import br.com.firmino.api_monitor.repository.MonitoredApiRepository;
 import br.com.firmino.api_monitor.repository.StatusCheckRepository;
-import br.com.firmino.api_monitor.user.User;
+import br.com.firmino.api_monitor.entity.User;
+import br.com.firmino.api_monitor.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +16,19 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class MonitoredApiService {
-    @Autowired
-    private MonitoredApiRepository monitoredApiRepository;
 
-    @Autowired
-    private StatusCheckRepository statusCheckRepository;
+    private final MonitoredApiRepository monitoredApiRepository;
+    private final StatusCheckRepository statusCheckRepository;
+    private final UserRepository userRepository;
 
 
+    public List<ApiServiceStatusDTO>findApisByUsername(String identifier){
+        User user = userRepository.findByUsernameOrEmail(identifier, identifier)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado com o identificador: " + identifier));
+        return getServicesForUser(user);
+    }
     public List<ApiServiceStatusDTO> getPublicServices() {
         List<MonitoredApi> services = monitoredApiRepository.findByIsPublicTrue();
         return services.stream()

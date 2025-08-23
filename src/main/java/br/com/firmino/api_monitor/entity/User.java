@@ -1,4 +1,4 @@
-package br.com.firmino.api_monitor.user;
+package br.com.firmino.api_monitor.entity;
 
 import br.com.firmino.api_monitor.profile.UserProfile;
 import jakarta.persistence.*;

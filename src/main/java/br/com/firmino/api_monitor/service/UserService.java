@@ -1,8 +1,10 @@
-package br.com.firmino.api_monitor.user;
+package br.com.firmino.api_monitor.service;
 
 
 import br.com.firmino.api_monitor.dto.UserDTO;
 import br.com.firmino.api_monitor.profile.UserProfile;
+import br.com.firmino.api_monitor.entity.User;
+import br.com.firmino.api_monitor.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

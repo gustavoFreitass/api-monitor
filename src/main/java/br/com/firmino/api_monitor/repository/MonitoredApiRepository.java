@@ -1,6 +1,8 @@
-package br.com.firmino.api_monitor.api;
+package br.com.firmino.api_monitor.repository;
 
-import br.com.firmino.api_monitor.user.User;
+import br.com.firmino.api_monitor.api.MonitoredApi;
+import br.com.firmino.api_monitor.api.ServiceType;
+import br.com.firmino.api_monitor.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

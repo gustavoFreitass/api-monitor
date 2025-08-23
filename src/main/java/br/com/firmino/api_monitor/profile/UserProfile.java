@@ -1,6 +1,6 @@
 package br.com.firmino.api_monitor.profile;
 
-import br.com.firmino.api_monitor.user.User;
+import br.com.firmino.api_monitor.entity.User;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

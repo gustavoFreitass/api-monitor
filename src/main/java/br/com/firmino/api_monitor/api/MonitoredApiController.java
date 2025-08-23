@@ -1,8 +1,9 @@
 package br.com.firmino.api_monitor.api;
 
 import br.com.firmino.api_monitor.dto.ApiServiceStatusDTO; // 1. Importar nosso DTO
-import br.com.firmino.api_monitor.user.User;
-import br.com.firmino.api_monitor.user.UserRepository;
+import br.com.firmino.api_monitor.entity.User;
+import br.com.firmino.api_monitor.repository.UserRepository;
+import br.com.firmino.api_monitor.service.MonitoredApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
